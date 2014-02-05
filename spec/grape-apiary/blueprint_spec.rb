@@ -12,7 +12,9 @@ describe GrapeApiary::Blueprint do
       end
     end
 
-    subject { GrapeApiary::Blueprint.new.generate }
+    let(:klass) { nil }
+
+    subject { GrapeApiary::Blueprint.new(klass).generate }
 
     it 'sets the format to 1A' do
       expect(subject).to include('1A')
