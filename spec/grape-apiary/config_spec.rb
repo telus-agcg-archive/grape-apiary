@@ -3,21 +3,50 @@ require 'spec_helper'
 describe GrapeApiary::Config do
   include_context 'configuration'
 
-  it 'allows for host to be set' do
-    GrapeApiary::Config.host = host
+  subject() { GrapeApiary::Config }
 
-    expect(GrapeApiary::Config.host).to eq(host)
+  it 'allows for host to be set' do
+    subject.host = host
+
+    expect(subject.host).to eq(host)
   end
 
   it 'allows for name to be set' do
-    GrapeApiary::Config.name = name
+    subject.name = name
 
-    expect(GrapeApiary::Config.name).to eq(name)
+    expect(subject.name).to eq(name)
   end
 
   it 'allows for description to be set' do
-    GrapeApiary::Config.description = description
+    subject.description = description
 
-    expect(GrapeApiary::Config.description).to eq(description)
+    expect(subject.description).to eq(description)
+  end
+
+  context 'headers' do
+    [:request_headers, :response_headers].each do |type|
+
+      context type do
+        it 'is an array' do
+          expect(subject.send(type)).to be_a(Array)
+        end
+
+        it 'allows for request headers to be set in bulk' do
+          headers = send(type)
+
+          subject.send("#{type}=", headers)
+
+          expect(subject.send(type)).to eq(headers)
+        end
+
+        it 'allows for request headers to be set individually' do
+          header = { Host: 'api.connexiolabs-qa.com' }
+
+          expect {
+            subject.send(type) << header
+          }.to change{subject.send(type).length}.by(1)
+        end
+      end
+    end
   end
 end

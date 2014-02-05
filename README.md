@@ -18,7 +18,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+GrapeApiary.config do |config|
+  config.host            = 'http://awesome-api.apiary.io'
+  config.name            = 'Awesome API'
+  config.description     = 'The awesome description'
+end
+
+GrapeApiary.config.request_headers = [
+  { 'Accept-Charset' => 'utf-8' },
+  { 'Connection'     => 'keep-alive' },
+  { 'Content-Type'   => 'application/json' }
+]
+
+GrapeApiary.config.response_headers = [
+  { 'Content-Length' => '21685' },
+  { 'Connection'     => 'keep-alive' },
+  { 'Content-Type'   => 'application/json' }
+]
+
+GrapeApiary::Blueprint(AwesomeAPI).generate
+```
 
 ## TODO
 
