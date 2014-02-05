@@ -8,26 +8,13 @@ module GrapeApiary
     end
 
     private
+
     def template
       @template ||= File.read('./lib/grape-apiary/templates/blueprint.md.erb')
     end
 
     def binding
-      @binding ||= Binding.new.get_binding
-    end
-  end
-
-  class Binding
-    extend Forwardable
-
-    delegate [:host, :name, :description] => 'GrapeApiary::Config'
-
-    def get_binding
-      binding
-    end
-
-    def resources
-      @resources ||= []
+      @binding ||= Routes.new.routes_binding
     end
   end
 end

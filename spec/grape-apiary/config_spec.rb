@@ -3,7 +3,7 @@ require 'spec_helper'
 describe GrapeApiary::Config do
   include_context 'configuration'
 
-  subject() { GrapeApiary::Config }
+  subject { GrapeApiary::Config }
 
   it 'allows for host to be set' do
     subject.host = host
@@ -42,9 +42,9 @@ describe GrapeApiary::Config do
         it 'allows for request headers to be set individually' do
           header = { Host: 'api.connexiolabs-qa.com' }
 
-          expect {
+          expect do
             subject.send(type) << header
-          }.to change{subject.send(type).length}.by(1)
+          end.to change { subject.send(type).length }.by(1)
         end
       end
     end

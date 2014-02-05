@@ -1,0 +1,8 @@
+AllCops:
+  Excludes:
+    - Rakefile
+    - bin/**
+
+Documentation:
+  # don't require classes to be documented
+  Enabled: false
