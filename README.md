@@ -2,6 +2,7 @@
 
 [![Code Climate](https://codeclimate.com/github/connexio-labs/grape-apiary.png)](https://codeclimate.com/github/connexio-labs/grape-apiary)
 [![Build Status](https://travis-ci.org/connexio-labs/grape-apiary.png?branch=master)](https://travis-ci.org/connexio-labs/grape-apiary)
+[![Coverage Status](https://coveralls.io/repos/connexio-labs/grape-apiary/badge.png)](https://coveralls.io/r/connexio-labs/grape-apiary)
 
 Auto generates an [Apiary Blueprint](http://apiary.io) from the docuementation that is created by your Grape API.
 
