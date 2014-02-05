@@ -1,7 +1,7 @@
 require 'grape'
 require 'grape-apiary/version'
 require 'grape-apiary/config'
-require 'grape-apiary/generator'
+require 'grape-apiary/blueprint'
 
 module GrapeApiary
   extend self

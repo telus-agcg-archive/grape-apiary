@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe GrapeApiary::Generator do
+describe GrapeApiary::Blueprint do
   include_context 'configuration'
 
   context '#generate' do
@@ -12,7 +12,7 @@ describe GrapeApiary::Generator do
       end
     end
 
-    subject() { GrapeApiary::Generator.new.generate }
+    subject() { GrapeApiary::Blueprint.new.generate }
 
     it 'sets the format to 1A' do
       expect(subject).to include('1A')

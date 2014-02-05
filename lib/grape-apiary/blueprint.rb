@@ -1,5 +1,5 @@
 module GrapeApiary
-  class Generator
+  class Blueprint
     def generate
       ERB.new(template).result(binding)
     end
