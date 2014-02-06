@@ -22,14 +22,23 @@ Or install it yourself as:
 
 ## Usage
 
+### Configuration
+
+Configure details about your api in an initializers or similar
+
 ```ruby
 GrapeApiary.config do |config|
+  # your apiary.io host name
   config.host               = 'http://awesome-api.apiary.io'
+  # the name of your api
   config.name               = 'Awesome API'
+  # a description for your api
   config.description        = 'The awesome description'
+  # resources you do not want documented
   config.resource_exclusion = [:admin, :swagger_doc]
 end
 
+# headers you want documented
 GrapeApiary.config.request_headers = [
   { 'Accept-Charset' => 'utf-8' },
   { 'Connection'     => 'keep-alive' },
@@ -41,9 +50,13 @@ GrapeApiary.config.response_headers = [
   { 'Connection'     => 'keep-alive' },
   { 'Content-Type'   => 'application/json' }
 ]
+```
 
+### Generation
 
-GrapeApiary::Blueprint(AwesomeAPI).generate
+```ruby
+# supply the class you'd like to document and generate your blueprint
+GrapeApiary::Blueprint.new(AwesomeAPI).generate
 ```
 
 ## TODO
