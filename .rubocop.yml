@@ -11,3 +11,8 @@ Documentation:
 Encoding:
   # no need to always specify encoding
   Enabled: false
+
+LineLength:
+  # just one more character please
+  Max: 80
+
