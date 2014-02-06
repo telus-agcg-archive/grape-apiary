@@ -24,9 +24,10 @@ Or install it yourself as:
 
 ```ruby
 GrapeApiary.config do |config|
-  config.host            = 'http://awesome-api.apiary.io'
-  config.name            = 'Awesome API'
-  config.description     = 'The awesome description'
+  config.host               = 'http://awesome-api.apiary.io'
+  config.name               = 'Awesome API'
+  config.description        = 'The awesome description'
+  config.resource_exclusion = [:admin, :swagger_doc]
 end
 
 GrapeApiary.config.request_headers = [
@@ -41,8 +42,6 @@ GrapeApiary.config.response_headers = [
   { 'Content-Type'   => 'application/json' }
 ]
 
-GrapeApiary.config.response_headers = [
-]
 
 GrapeApiary::Blueprint(AwesomeAPI).generate
 ```

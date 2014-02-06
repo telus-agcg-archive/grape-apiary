@@ -14,6 +14,10 @@ module GrapeApiary
       @resources ||= []
     end
 
+    def exclude?(resource)
+      resource_exclusion.include?(resource.to_sym)
+    end
+
     def routes_binding
       binding
     end
