@@ -4,14 +4,20 @@ module GrapeApiary
 
     attr_reader :api_class
 
-    delegate [:host, :name, :description] => 'GrapeApiary::Config'
+    delegate GrapeApiary::Config::SETTINGS => 'GrapeApiary::Config'
+    delegate [:routes] => :api_class
 
     def initialize(api_class)
       @api_class = api_class
     end
 
     def resources
-      @resources ||= []
+      @resources ||= routes.reduce({}) do |resources, route|
+        resources[route.name] ||= []
+        resources[route.name] << route
+
+        resources
+      end
     end
 
     def exclude?(resource)
