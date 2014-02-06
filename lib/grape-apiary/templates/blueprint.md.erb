@@ -3,3 +3,36 @@ HOST: <%= host %>
 
 # <%= name %>
 <%= description %>
+
+<% resources.each do |resource| %>
+# Group <%= resource.title %>
+  <% resource.namespaced.each do |grouped_resource| %>
+    <% grouped_resource.paths.each do |resource_by_path| %>
+## <%= resource.header %>
+Actions on the <%= resource.name %> resource
+      <% if resource_by_path.routes.first.route_params.present? %>
++ Parameters
+        <% resource_by_path.routes.first.route_params.each do |param| %>
+    + <%= param.description %>
+        <% end %>
+      <% end %>
+      <% resource_by_path.routes.each do |route| %>
+### <%= route.route_description %>
+<%= route.request_description %>
+    + Headers
+
+            <%= formatted_request_headers %>
+<% if show_request_sample?(route) %>
+    + Body
+
+<%= resource.sample_request %>
+<% end %>
+    + Headers
+
+            <%= formatted_response_headers %>
+
+    + Body
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

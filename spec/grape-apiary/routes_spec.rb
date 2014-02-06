@@ -10,6 +10,16 @@ describe GrapeApiary::Routes do
       config.description        = description
       config.resource_exclusion = [:admin]
     end
+
+    GrapeApiary.config.request_headers = [
+      { 'Accept-Charset' => 'utf-8' },
+      { 'Connection'     => 'keep-alive' }
+    ]
+
+    GrapeApiary.config.response_headers = [
+      { 'Content-Length' => '21685' },
+      { 'Connection'     => 'keep-alive' }
+    ]
   end
 
   subject { GrapeApiary::Routes.new(SampleApi) }
@@ -25,7 +35,7 @@ describe GrapeApiary::Routes do
   end
 
   context '#resources' do
-    let(:unique_routes) { subject.routes.map(&:name).uniq }
+    let(:unique_routes) { subject.routes.map(&:route_name).uniq }
 
     let(:included_routes) do
       unique_routes.reject do |name|
@@ -38,7 +48,7 @@ describe GrapeApiary::Routes do
     end
 
     it 'excluded resources based on configuration' do
-      expect(subject.resources.map(&:name)).to eq(included_routes)
+      expect(subject.resources.map(&:key)).to eq(included_routes)
     end
   end
 end
