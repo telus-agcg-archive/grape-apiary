@@ -12,11 +12,12 @@ module GrapeApiary
     end
 
     def resources
-      @resources ||= routes.reduce({}) do |resources, route|
-        resources[route.name] ||= []
-        resources[route.name] << route
+      @resources ||= begin
+        grouped_routes = routes.group_by(&:name).reject do |name, routes|
+          resource_exclusion.include?(name.to_sym)
+        end
 
-        resources
+        grouped_routes.map { |name, routes| Resource.new(name, routes) }
       end
     end
 
@@ -26,6 +27,15 @@ module GrapeApiary
 
     def routes_binding
       binding
+    end
+  end
+
+  class Resource
+    attr_reader :name, :routes
+
+    def initialize(name, routes)
+      @name   = name
+      @routes = routes
     end
   end
 end
