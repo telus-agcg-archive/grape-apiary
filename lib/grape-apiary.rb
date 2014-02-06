@@ -1,6 +1,7 @@
 require 'grape'
 require 'grape-apiary/version'
 require 'grape-apiary/config'
+require 'grape-apiary/route_describer'
 require 'grape-apiary/routes'
 require 'grape-apiary/blueprint'
 
