@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['john@threedogconsulting.com']
   spec.summary       = %q{Allows for generating an Apiary Blueprint for you Grape API}
   spec.description   = %q{Auto generates an Apiary (http://apiary.io) Blueprint from the docuementation that is created by your Grape API}
-  spec.homepage      = 'https://github.com/connexio/grape-apiary'
+  spec.homepage      = 'https://github.com/connexio-labs/grape-apiary'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
