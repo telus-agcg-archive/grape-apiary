@@ -1,6 +1,7 @@
 AllCops:
   Excludes:
     - Rakefile
+    - vendor/**
     - bin/**
 
 Documentation:
