@@ -16,6 +16,7 @@ This is an early implementation that makes some assumptions about your API and w
 
 Add this line to your application's Gemfile:
 
+    gem 'grape', github: 'intridea/grape' # see note above
     gem 'grape-apiary'
 
 And then execute:
@@ -74,6 +75,7 @@ GrapeApiary::Blueprint.new(AwesomeAPI).generate
 * Add support for listing all of a resources attributes at the resource level as a markdown table
 * Handle ever changing sample id's (don't want git diff's after every generation)
 * Add option to change or remove the sample id field (eg. `_id` vs `id`)
+* What if someone does not use JSON?!?
 
 ## Contributing
 
