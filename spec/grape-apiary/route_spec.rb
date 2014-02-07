@@ -3,7 +3,7 @@ require 'spec_helper'
 describe GrapeApiary::Route do
   include_context 'configuration'
 
-  let(:routes) { GrapeApiary::Routes.new(SampleApi).routes }
+  let(:routes) { GrapeApiary::Blueprint.new(SampleApi).routes }
 
   subject { routes.first }
 
