@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in grape-apiary.gemspec
 gemspec
 
+gem 'grape', github: 'intridea/grape'
+
 group :development, :test do
   gem 'coveralls', '~> 0.7'
   gem 'rspec', '~> 2.14'
