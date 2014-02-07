@@ -26,4 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rubocop', '~> 0.18'
   spec.add_development_dependency 'pry', '~> 0.9'
+  spec.add_development_dependency 'guard', '~> 2.4'
+  spec.add_development_dependency 'guard-rspec', '~> 4.2'
+  spec.add_development_dependency 'guard-bundler', '~> 2.0'
 end
