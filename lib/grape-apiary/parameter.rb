@@ -4,7 +4,7 @@ module GrapeApiary
 
     delegate :route_model, :route_namespace, to: :route
     delegate :requirement, :type, :documentation, :desc, to: :settings
-    delegate :example, to: :documentation
+    delegate :example, to: :documentation, allow_nil: true
 
     def initialize(route, name, options)
       @route    = route
