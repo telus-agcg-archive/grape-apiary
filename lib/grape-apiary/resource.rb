@@ -1,11 +1,12 @@
 module GrapeApiary
   class Resource
-    attr_reader :key, :name, :routes
+    attr_reader :key, :name, :routes, :sample_generator
 
     def initialize(key, routes)
-      @key    = key
-      @name   = key.humanize
-      @routes = routes
+      @key              = key
+      @name             = key.humanize
+      @routes           = routes
+      @sample_generator = SampleGenerator.new(self)
     end
 
     def title
@@ -32,15 +33,21 @@ module GrapeApiary
     end
 
     def sample_request
-      SampleGenerator.new(self).request
+      sample_generator.request
     end
 
     def sample_response
-      SampleGenerator.new(self).response
+      sample_generator.response
     end
 
     def unique_params
-      # params = routes.map(&:route_params)
+      # TODO: this is a hack, assuming that the resource has a POST or PUT
+      # route that defines all of the parameters that would define the resource
+      potential = routes.select do |route|
+        %w(POST PUT).include?(route.route_method)
+      end
+
+      potential.first.try(:route_params) || []
     end
   end
 end

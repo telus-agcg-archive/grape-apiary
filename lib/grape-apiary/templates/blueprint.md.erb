@@ -27,11 +27,14 @@ Actions on the <%= resource.name %> resource
 
 <%= resource.sample_request %>
 <% end %>
+<%= route.request_description %>
     + Headers
 
             <%= formatted_response_headers %>
 
     + Body
+
+<%= resource.sample_response %>
       <% end %>
     <% end %>
   <% end %>

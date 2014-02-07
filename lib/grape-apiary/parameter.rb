@@ -2,8 +2,9 @@ module GrapeApiary
   class Parameter
     attr_reader :route, :name, :settings
 
-    delegate :route_model, :route_namespace,       to: :route
-    delegate :requirement, :type, :example, :desc, to: :settings
+    delegate :route_model, :route_namespace, to: :route
+    delegate :requirement, :type, :documentation, :desc, to: :settings
+    delegate :example, to: :documentation
 
     def initialize(route, name, options)
       @route    = route
@@ -30,11 +31,13 @@ module GrapeApiary
       model = name.include?('_id') ? name.gsub('_id', '') : route.route_model
 
       {
-        required:     true,
-        requirement:  'required',
-        type:         'uuid',
-        desc:         "the `id` of the `#{model}`",
-        example:      SecureRandom.uuid
+        required:       true,
+        requirement:    'required',
+        type:           'uuid',
+        desc:           "the `id` of the `#{model}`",
+        documentation:  {
+          example:      GrapeApiary::Config.generate_id
+        }
       }
     end
   end
