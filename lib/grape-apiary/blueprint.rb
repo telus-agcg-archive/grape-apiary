@@ -6,7 +6,6 @@ module GrapeApiary
 
     def initialize(api_class)
       @api_class = api_class
-      @template  = File.read('./lib/grape-apiary/templates/blueprint.md.erb')
     end
 
     def generate
@@ -14,6 +13,15 @@ module GrapeApiary
     end
 
     def write
+      fail 'Not yet supported'
+    end
+
+    def template
+      @template ||= begin
+        path = File.expand_path('./templates/blueprint.md.erb', __dir__)
+
+        File.read(path)
+      end
     end
 
     def routes
