@@ -18,7 +18,8 @@ module GrapeApiary
 
     def template
       @template ||= begin
-        path = File.expand_path('./templates/blueprint.md.erb', __dir__)
+        directory = File.dirname(File.expand_path(__FILE__))
+        path = File.join(directory, './templates/blueprint.md.erb')
 
         File.read(path)
       end
