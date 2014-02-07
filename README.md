@@ -6,7 +6,11 @@
 [![Dependency Status](https://gemnasium.com/connexio-labs/grape-apiary.png)](https://gemnasium.com/connexio-labs/grape-apiary)
 [![Gem Version](https://badge.fury.io/rb/grape-apiary.png)](http://badge.fury.io/rb/grape-apiary)
 
-Auto generates an [Apiary Blueprint](http://apiary.io) from the docuementation that is created by your Grape API.
+Auto generates an [Apiary Blueprint](http://apiary.io) from the docuementation that is created by your [Grape](https://github.com/intridea/grape) API.
+
+### NOTE
+
+This is an early implementation that makes some assumptions about your API and works with our implementation of Grape API's. There is a new an [unreleased feature in Grape](https://github.com/intridea/grape#parameter-documentation) that allows for appending additional documentation. This project is dependent on this feature in order to create example JSON requests and responses.
 
 ## Installation
 
@@ -24,9 +28,11 @@ Or install it yourself as:
 
 ## Usage
 
+Add some metadata about your API and then run execute the `generate` method on the `GrapeApiary::Blueprint` class.
+
 ### Configuration
 
-Configure details about your api in an initializers or similar
+Configure details about your api in an initializers or similar:
 
 ```ruby
 GrapeApiary.config do |config|
@@ -36,21 +42,22 @@ GrapeApiary.config do |config|
   config.name               = 'Awesome API'
   # a description for your api
   config.description        = 'The awesome description'
+  # the type to use for generated sample id's (`integer` or `uuid`)
+  config.example_id_type    = :uuid
   # resources you do not want documented
   config.resource_exclusion = [:admin, :swagger_doc]
 end
 
-# headers you want documented
+# request headers you want documented
 GrapeApiary.config.request_headers = [
   { 'Accept-Charset' => 'utf-8' },
-  { 'Connection'     => 'keep-alive' },
-  { 'Content-Type'   => 'application/json' }
+  { 'Connection'     => 'keep-alive' }
 ]
 
+# response headers you want documented
 GrapeApiary.config.response_headers = [
   { 'Content-Length' => '21685' },
-  { 'Connection'     => 'keep-alive' },
-  { 'Content-Type'   => 'application/json' }
+  { 'Connection'     => 'keep-alive' }
 ]
 ```
 
@@ -63,6 +70,10 @@ GrapeApiary::Blueprint.new(AwesomeAPI).generate
 
 ## TODO
 
+* Add a rake task to simplify generation
+* Add support for listing all of a resources attributes at the resource level as a markdown table
+* Handle ever changing sample id's (don't want git diff's after every generation)
+* Add option to change or remove the sample id field (eg. `_id` vs `id`)
 
 ## Contributing
 
