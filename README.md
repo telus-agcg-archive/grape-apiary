@@ -10,7 +10,7 @@ Auto generates an [Apiary Blueprint](http://apiary.io) from the docuementation t
 
 ### NOTE
 
-This is an early implementation that makes some assumptions about your API and works with our implementation of Grape API's. There is a new an [unreleased feature in Grape](https://github.com/intridea/grape#parameter-documentation) that allows for appending additional documentation. This project is dependent on this feature in order to create example JSON requests and responses.
+This is an early implementation that makes some assumptions about your API (follows a standard REST pattern) that works with our implementation of Grape API's. There is a new an [unreleased feature in Grape](https://github.com/intridea/grape#parameter-documentation) that allows for appending additional documentation. This project is dependent on this feature in order to create example JSON requests and responses.
 
 ## Installation
 
@@ -29,7 +29,7 @@ Or install it yourself as:
 
 ## Usage
 
-Add some metadata about your API and then run execute the `generate` method on the `GrapeApiary::Blueprint` class.
+Add some metadata about your API and then execute the `generate` method on the `GrapeApiary::Blueprint` class.
 
 ### Configuration
 
