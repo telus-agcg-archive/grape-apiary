@@ -76,6 +76,7 @@ GrapeApiary::Blueprint.new(AwesomeAPI).generate
 * Handle ever changing sample id's (don't want git diff's after every generation)
 * Add option to change or remove the sample id field (eg. `_id` vs `id`)
 * What if someone does not use JSON?!?
+* Creat sample response for list endpoints (array)
 
 ## Contributing
 
