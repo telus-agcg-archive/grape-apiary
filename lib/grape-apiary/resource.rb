@@ -47,7 +47,7 @@ module GrapeApiary
         %w(POST PUT).include?(route.route_method)
       end
 
-      potential.first.try(:route_params) || []
+      potential.first.route_params rescue []
     end
   end
 end
