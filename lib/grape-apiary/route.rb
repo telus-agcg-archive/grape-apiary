@@ -42,7 +42,7 @@ module GrapeApiary
     end
 
     def list?
-      route_method == 'GET' && !route_path.include?(':id')
+      %w(GET POST).include?(route_method) && !route_path.include?(':id')
     end
 
     private
