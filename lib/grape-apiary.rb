@@ -1,16 +1,15 @@
 require 'grape'
-require 'grape-apiary/version'
-require 'grape-apiary/config'
-require 'grape-apiary/parameter'
-require 'grape-apiary/sample_generator'
-require 'grape-apiary/route'
-require 'grape-apiary/resource'
-require 'grape-apiary/blueprint'
 
 module GrapeApiary
-  module_function
+  autoload :Version,         'grape-apiary/version'
+  autoload :Config,          'grape-apiary/config'
+  autoload :Parameter,       'grape-apiary/parameter'
+  autoload :SampleGenerator, 'grape-apiary/sample_generator'
+  autoload :Route,           'grape-apiary/route'
+  autoload :Resource,        'grape-apiary/resource'
+  autoload :Blueprint,       'grape-apiary/blueprint'
 
-  def config
+  def self.config
     block_given? ? yield(Config) : Config
   end
 end
