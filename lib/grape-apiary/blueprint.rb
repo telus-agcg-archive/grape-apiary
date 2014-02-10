@@ -60,6 +60,8 @@ module GrapeApiary
     private
 
     def formatted_headers(headers)
+      return '' unless headers.present?
+
       spacer  = "\n" + (' ' * 12)
 
       strings = headers.map do |header|
@@ -68,7 +70,7 @@ module GrapeApiary
         "#{key}: #{value}"
       end
 
-      strings.join(spacer)
+      "    + Headers\n" + spacer + strings.join(spacer)
     end
   end
 end

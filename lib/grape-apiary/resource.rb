@@ -43,8 +43,10 @@ module GrapeApiary
     def unique_params
       # TODO: this is a hack, assuming that the resource has a POST or PUT
       # route that defines all of the parameters that would define the resource
+      methods = %w(POST PUT)
+
       potential = routes.select do |route|
-        %w(POST PUT).include?(route.route_method)
+        methods.include?(route.route_method) && route.route_params.present?
       end
 
       if potential.present?

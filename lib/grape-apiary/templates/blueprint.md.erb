@@ -18,19 +18,15 @@ Actions on the <%= resource.name %> resource
       <% end %>
       <% resource_by_path.routes.each do |route| %>
 ### <%= route.route_description %>
-<%= route.request_description %>
-    + Headers
-
-            <%= formatted_request_headers %>
 <% if show_request_sample?(route) %>
+<%= route.request_description %>
+<%= formatted_request_headers %>
     + Body
 
 <%= resource.sample_request %>
 <% end %>
-<%= route.request_description %>
-    + Headers
-
-            <%= formatted_response_headers %>
+<%= route.response_description %>
+<%= formatted_response_headers %>
 
     + Body
 
