@@ -41,11 +41,11 @@ module GrapeApiary
       "+ Response #{code} (application/json)"
     end
 
-    private
-
     def list?
       route_method == 'GET' && !route_path.include?(':id')
     end
+
+    private
 
     def request_body?
       !%w(GET DELETE).include?(route_method)

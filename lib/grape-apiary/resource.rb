@@ -36,8 +36,8 @@ module GrapeApiary
       sample_generator.request
     end
 
-    def sample_response
-      sample_generator.response
+    def sample_response(route)
+      sample_generator.response(route.list?)
     end
 
     def unique_params

@@ -28,11 +28,11 @@ module GrapeApiary
         .gsub(/\ {2}\"/, (' ' * 16) + '"')
     end
 
-    def response
+    def response(list = false)
       return unless sample.present?
 
       hash = sample.reverse_merge(id: GrapeApiary::Config.generate_id)
-      # sample = [sample] if list?(route)
+      hash = [hash] if list
 
       # format json spaces for blueprint markdown
       JSON.pretty_generate(hash)
