@@ -80,7 +80,7 @@ GrapeApiary::Blueprint.new(AwesomeAPI).generate
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/grape-apiary/fork )
+1. Fork it ( http://github.com/connexio-labs/grape-apiary/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
