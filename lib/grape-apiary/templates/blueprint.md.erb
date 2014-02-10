@@ -8,7 +8,7 @@ HOST: <%= host %>
 # Group <%= resource.title %>
   <% resource.namespaced.each do |grouped_resource| %>
     <% grouped_resource.paths.each do |resource_by_path| %>
-## <%= resource.header %>
+## <%= resource_by_path.header %>
 Actions on the <%= resource.name %> resource
       <% if resource_by_path.routes.first.route_params.present? %>
 + Parameters
