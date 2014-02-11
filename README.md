@@ -77,6 +77,7 @@ GrapeApiary::Blueprint.new(AwesomeAPI).generate
 * Add option to change or remove the sample id field (eg. `_id` vs `id`)
 * What if someone does not use JSON?!?
 * ~~Create sample response for list endpoints (array)~~
+* Add support for writing the blueprint to disk
 
 ## Contributing
 
