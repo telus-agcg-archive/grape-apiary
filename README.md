@@ -78,6 +78,7 @@ GrapeApiary::Blueprint.new(AwesomeAPI).generate
 * What if someone does not use JSON?!?
 * ~~Create sample response for list endpoints (array)~~
 * Add support for writing the blueprint to disk
+* Add an option to include root in json
 
 ## Contributing
 
