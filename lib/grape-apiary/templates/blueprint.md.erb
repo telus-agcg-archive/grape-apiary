@@ -6,6 +6,7 @@ HOST: <%= host %>
 
 <% resources.each do |resource| %>
 # Group <%= resource.title %>
+<%= properties_table(resource) %>
   <% resource.namespaced.each do |grouped_resource| %>
     <% grouped_resource.paths.each do |resource_by_path| %>
 ## <%= resource_by_path.header %>

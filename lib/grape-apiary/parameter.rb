@@ -1,16 +1,17 @@
 module GrapeApiary
   class Parameter
-    attr_reader :route, :name, :settings
+    attr_reader :route, :full_name, :name, :settings
 
     delegate :route_model, :route_namespace, to: :route
     delegate :requirement, :type, :documentation, :desc, to: :settings
     delegate :example, to: :documentation, allow_nil: true
 
     def initialize(route, name, options)
-      @route    = route
-      @name     = name
-      @name     = name.scan(/\[(.*)\]/).flatten.first if name.include?('[')
-      @settings = parse_options(options)
+      @full_name = name
+      @name      = name
+      @name      = name.scan(/\[(.*)\]/).flatten.first if name.include?('[')
+      @route     = route
+      @settings  = parse_options(options)
     end
 
     def description

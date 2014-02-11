@@ -48,6 +48,10 @@ describe GrapeApiary::Blueprint do
     it 'includes groups for each resource' do
       expect(subject).to include('# Group Widgets')
     end
+
+    it 'includes properties for the resources' do
+      expect(subject).to include('Properties')
+    end
   end
 
   it 'exposes configuration settings' do

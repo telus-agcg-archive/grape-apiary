@@ -55,5 +55,9 @@ module GrapeApiary
         []
       end
     end
+
+    def resource_binding
+      binding
+    end
   end
 end
