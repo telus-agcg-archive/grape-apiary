@@ -23,6 +23,18 @@ describe GrapeApiary::Config do
     expect(subject.description).to eq(description)
   end
 
+  context '.include_root' do
+    it 'defaults to false' do
+      expect(subject.include_root).to be(false)
+    end
+
+    it 'allows for inclusion of the root to be set' do
+      subject.include_root = true
+
+      expect(subject.include_root).to eq(true)
+    end
+  end
+
   context 'headers' do
     [:request_headers, :response_headers].each do |type|
       context type do

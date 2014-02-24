@@ -8,6 +8,7 @@ describe GrapeApiary::SampleGenerator do
       config.host               = host
       config.name               = name
       config.description        = description
+      config.include_root       = false
     end
   end
 

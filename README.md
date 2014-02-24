@@ -47,6 +47,8 @@ GrapeApiary.config do |config|
   config.example_id_type    = :uuid
   # resources you do not want documented
   config.resource_exclusion = [:admin, :swagger_doc]
+  # whether or not examples should include a root element (default: false)
+  config.include_root       = true
 end
 
 # request headers you want documented

@@ -1,37 +1,46 @@
 module GrapeApiary
   class SampleGenerator
-    attr_reader :resource
+    attr_reader :resource, :root
 
     delegate :unique_params, to: :resource
 
     def initialize(resource)
       @resource = resource
+      @root     = resource.key.singularize
     end
 
-    def sample
-      @sample ||= begin
-        array = resource.unique_params.map do |resource|
-          [resource.name, resource.example]
-        end
+    def sample(id = false)
+      array = resource.unique_params.map do |param|
+        next if param.name == root
 
-        Hash[array]
+        [param.name, param.example]
       end
+
+      hash = Hash[array.compact]
+
+      hash = hash.reverse_merge(id: Config.generate_id) if id
+      hash = { root => hash } if Config.include_root
+
+      hash
     end
 
     def request
-      return unless sample.present?
+      hash = sample
+
+      return unless hash.present?
 
       # format json spaces for blueprint markdown
-      JSON.pretty_generate(sample)
+      JSON.pretty_generate(hash)
         .gsub('{', (' ' * 14) + '{')
         .gsub('}', (' ' * 14) + '}')
         .gsub(/\ {2}\"/, (' ' * 16) + '"')
     end
 
     def response(list = false)
-      return unless sample.present?
+      hash = sample(true)
 
-      hash = sample.reverse_merge(id: GrapeApiary::Config.generate_id)
+      return unless hash.present?
+
       hash = [hash] if list
 
       # format json spaces for blueprint markdown

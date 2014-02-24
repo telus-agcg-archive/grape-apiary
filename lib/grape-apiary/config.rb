@@ -7,7 +7,8 @@ module GrapeApiary
       :request_headers,
       :response_headers,
       :example_id_type,
-      :resource_exclusion
+      :resource_exclusion,
+      :include_root
     ]
 
     class << self
@@ -23,6 +24,10 @@ module GrapeApiary
 
       def resource_exclusion
         @resource_exclusion ||= []
+      end
+
+      def include_root
+        @include_root ||= false
       end
 
       def supported_id_types
