@@ -10,7 +10,8 @@ group :development, :test do
   gem 'rspec', '~> 2.14'
   gem 'bundler', '~> 1.5'
   gem 'rake', '~> 10.0'
-  gem 'rubocop', '~> 0.18'
+  # https://gist.github.com/renier/9d23ead9a36ba2939d18
+  gem 'rubocop', '~> 0.23'
   gem 'pry', '~> 0.9'
   gem 'guard', '~> 2.4'
   gem 'guard-rspec', '~> 4.2'
