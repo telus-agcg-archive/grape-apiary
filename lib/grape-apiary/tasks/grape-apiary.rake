@@ -1,0 +1,17 @@
+namespace :ga do
+
+  desc "Produce documentation"
+  task :docs => :environment do |t, args|
+    api = ENV["API"] || ARGV[1]
+    fail "You must provide the name of an API to document" if api.nil?
+    begin
+      api_class = Object.const_get(api)
+      api_docs = GrapeApiary::Blueprint.new(api_class).generate
+      output_file = "docs/grape-apiary.md"
+      File.open(output_file, 'w') { |file| file.write(api_docs) }
+    rescue NameError => e
+      fail "#{api} has not been defined as a Grape API"
+    end
+  end
+
+end

@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+require 'rake'
+require 'bundler'
+
+raise "Bundler is required.  Please install bundler with 'gem install bundler'" unless defined?(Bundler)
+
+#
+# Example:
+#
+#   grape-apiary grape:docs
+
+# init dependencies
+Bundler.setup
+
+# init rake
+Rake.application.init
+
+# load the rake tasks
+gem_dir = File.expand_path('..',File.dirname(__FILE__))
+load "#{gem_dir}/lib/grape-apiary/tasks/grape-apiary.rake"
+
+# invoke the given task
+Rake.application.invoke_task(ARGV[0])

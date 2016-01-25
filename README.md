@@ -1,22 +1,18 @@
 # GrapeApiary
 
-[![Code Climate](https://codeclimate.com/github/connexio-labs/grape-apiary.png)](https://codeclimate.com/github/connexio-labs/grape-apiary)
-[![Build Status](https://travis-ci.org/connexio-labs/grape-apiary.png?branch=master)](https://travis-ci.org/connexio-labs/grape-apiary)
-[![Coverage Status](https://coveralls.io/repos/connexio-labs/grape-apiary/badge.png)](https://coveralls.io/r/connexio-labs/grape-apiary)
-[![Dependency Status](https://gemnasium.com/connexio-labs/grape-apiary.png)](https://gemnasium.com/connexio-labs/grape-apiary)
+[![Code Climate](https://codeclimate.com/github/technekes/grape-apiary.png)](https://codeclimate.com/github/connexio-labs/grape-apiary)
+[![Build Status](https://travis-ci.org/technekes/grape-apiary.png?branch=master)](https://travis-ci.org/connexio-labs/grape-apiary)
+[![Coverage Status](https://coveralls.io/repos/technekes/grape-apiary/badge.png)](https://coveralls.io/r/connexio-labs/grape-apiary)
+[![Dependency Status](https://gemnasium.com/technekes/grape-apiary.png)](https://gemnasium.com/connexio-labs/grape-apiary)
 [![Gem Version](https://badge.fury.io/rb/grape-apiary.png)](http://badge.fury.io/rb/grape-apiary)
 
-Auto generates an [Apiary Blueprint](http://apiary.io) from the docuementation that is created by your [Grape](https://github.com/intridea/grape) API.
-
-### NOTE
-
-This is an early implementation that makes some assumptions about your API (follows a standard REST pattern) that works with our implementation of Grape API's. There is a new an [unreleased feature in Grape](https://github.com/intridea/grape#parameter-documentation) that allows for appending additional documentation. This project is dependent on this feature in order to create example JSON requests and responses.
+Auto generates an [Apiary Blueprint](http://apiary.io) from the docuementation that is created by your [Grape](https://github.com/ruby-grape/grape) API.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'grape', github: 'intridea/grape' # see note above
+    gem 'grape'
     gem 'grape-apiary'
 
 And then execute:
@@ -27,9 +23,24 @@ Or install it yourself as:
 
     $ gem install grape-apiary
 
+In order to use the Rake task that can write your generated documents to the filesystem, add this
+stanza to your `Rakefile`:
+
+```
+spec = Gem::Specification.find_by_name 'grape-apiary'
+load "#{spec.gem_dir}/lib/grape-apiary/tasks/grape-apiary.rake"
+```
+
 ## Usage
 
 Add some metadata about your API and then execute the `generate` method on the `GrapeApiary::Blueprint` class.
+
+If you have installed the Rake task, per above, you can write your
+documentation to `docs/grape-apiary.md` with this command:
+
+```
+API=AwesomeAPI bundle exec rake ga:docs
+```
 
 ### Configuration
 
@@ -73,18 +84,16 @@ GrapeApiary::Blueprint.new(AwesomeAPI).generate
 
 ## TODO
 
-* Add a rake task to simplify generation
 * ~~Add support for listing all of a resources attributes at the resource level as a markdown table~~
 * Handle ever changing sample id's (don't want git diff's after every generation)
 * Add option to change or remove the sample id field (eg. `_id` vs `id`)
 * What if someone does not use JSON?!?
 * ~~Create sample response for list endpoints (array)~~
-* Add support for writing the blueprint to disk
 * Add an option to include root in json
 
 ## Contributing
 
-1. Fork it ( http://github.com/connexio-labs/grape-apiary/fork )
+1. Fork it ( http://github.com/technekes/grape-apiary/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['john@threedogconsulting.com']
   spec.summary       = %q{Allows for generating an Apiary Blueprint for you Grape API}
   spec.description   = %q{Auto generates an Apiary (http://apiary.io) Blueprint from the docuementation that is created by your Grape API}
-  spec.homepage      = 'https://github.com/connexio-labs/grape-apiary'
+  spec.homepage      = 'https://github.com/technekes/grape-apiary'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -18,13 +18,14 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'grape', '~> 0.6'
+  spec.add_runtime_dependency 'grape', '~> 0.14'
+  spec.add_runtime_dependency 'activesupport'
 
   spec.add_development_dependency 'coveralls', '~> 0.7'
   spec.add_development_dependency 'rspec', '~> 2.14'
   spec.add_development_dependency 'bundler', '~> 1.5'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rubocop', '~> 0.18'
+  spec.add_development_dependency 'rubocop', '~> 0.23'
   spec.add_development_dependency 'pry', '~> 0.9'
   spec.add_development_dependency 'guard', '~> 2.4'
   spec.add_development_dependency 'guard-rspec', '~> 4.2'

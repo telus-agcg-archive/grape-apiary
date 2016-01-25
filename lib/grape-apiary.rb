@@ -1,3 +1,4 @@
+require 'active_support/all'
 require 'grape'
 
 module GrapeApiary
