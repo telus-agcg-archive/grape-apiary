@@ -8,8 +8,8 @@ require 'rubygems'
 require 'bundler'
 Bundler.setup :default, :test
 
-require 'coveralls'
-Coveralls.wear!
+require 'codeclimate-test-reporter'
+CodeClimate::TestReporter.start
 
 require 'rspec'
 require 'pry'
