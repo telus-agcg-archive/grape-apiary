@@ -26,7 +26,7 @@ module GrapeApiary
 
     def resources
       @resources ||= begin
-        grouped_routes = routes.group_by(&:route_name).reject do |name, routes|
+        grouped_routes = routes.group_by(&:route_name).reject do |name, _|
           resource_exclusion.include?(name.to_sym)
         end
 

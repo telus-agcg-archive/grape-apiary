@@ -1,7 +1,7 @@
 class SampleApi < Grape::API
   resource 'widgets' do
     desc 'widgets list'
-    get  '/' do
+    get '/' do
     end
 
     desc 'individual widget'
@@ -11,13 +11,13 @@ class SampleApi < Grape::API
     desc 'create a widget'
     params do
       requires :name,
-               type: 'string',
-               desc: 'the widgets name',
-               documentation: { example: 'super widget' }
+        type: 'string',
+        desc: 'the widgets name',
+        documentation: { example: 'super widget' }
       optional :description,
-               type: 'string',
-               desc: 'the widgets name',
-               documentation: { example: 'the best widget ever made' }
+        type: 'string',
+        desc: 'the widgets name',
+        documentation: { example: 'the best widget ever made' }
     end
     post '/' do
     end
@@ -27,7 +27,7 @@ class SampleApi < Grape::API
       optional :name, type: 'string', desc: 'the widgets name'
       optional :description, type: 'string', desc: 'the widgets name'
     end
-    put  ':id' do
+    put ':id' do
     end
   end
 
