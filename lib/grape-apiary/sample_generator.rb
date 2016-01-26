@@ -30,26 +30,31 @@ module GrapeApiary
       return unless hash.present?
 
       # format json spaces for blueprint markdown
-      JSON.pretty_generate(hash)
+      JSON
+        .pretty_generate(hash)
         .gsub('{', (' ' * 14) + '{')
         .gsub('}', (' ' * 14) + '}')
         .gsub(/\ {2}\"/, (' ' * 16) + '"')
     end
 
     def response(list = false)
-      hash = sample(true)
+      return unless (hash = sample(true)).present?
 
-      return unless hash.present?
+      pretty_response_for(list ? [hash] : hash)
+    end
 
-      hash = [hash] if list
+    private
 
-      # format json spaces for blueprint markdown
-      JSON.pretty_generate(hash)
+    # rubocop:disable Metrics/AbcSize
+    def pretty_response_for(hash)
+      JSON
+        .pretty_generate(hash)
         .gsub('[', (' ' * 12) + '[')
         .gsub(']', (' ' * 12) + ']')
         .gsub('{', (' ' * 14) + '{')
         .gsub('}', (' ' * 14) + '}')
         .gsub(/\ {2}\"/, (' ' * 16) + '"')
     end
+    # rubocop:enable Metrics/AbcSize
   end
 end

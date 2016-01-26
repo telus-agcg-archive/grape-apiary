@@ -20,7 +20,7 @@ module GrapeApiary
     end
 
     def paths
-      @paths ||= routes.group_by(&:route_path_without_format).map do |n, routes|
+      @paths ||= routes.group_by(&:route_path_without_format).map do |_, routes|
         Resource.new(name, routes)
       end
     end

@@ -9,7 +9,7 @@ module GrapeApiary
       :example_id_type,
       :resource_exclusion,
       :include_root
-    ]
+    ].freeze
 
     class << self
       attr_accessor(*SETTINGS)

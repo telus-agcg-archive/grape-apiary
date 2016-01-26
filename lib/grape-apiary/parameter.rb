@@ -21,14 +21,14 @@ module GrapeApiary
     private
 
     def parse_options(options)
-      options = default_options(options) if options.blank?
+      options = default_options if options.blank?
 
       options[:requirement] = options[:required] ? 'required' : 'optional'
 
       Hashie::Mash.new(options)
     end
 
-    def default_options(options)
+    def default_options
       model = name.include?('_id') ? name.gsub('_id', '') : route.route_model
 
       {
