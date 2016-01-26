@@ -1,8 +1,7 @@
 # GrapeApiary
 
-[![Code Climate](https://codeclimate.com/github/technekes/grape-apiary.png)](https://codeclimate.com/github/connexio-labs/grape-apiary)
-[![Build Status](https://travis-ci.org/technekes/grape-apiary.png?branch=master)](https://travis-ci.org/connexio-labs/grape-apiary)
-[![Coverage Status](https://coveralls.io/repos/technekes/grape-apiary/badge.png)](https://coveralls.io/r/connexio-labs/grape-apiary)
+[![Code Climate](https://codeclimate.com/github/technekes/grape-apiary/badges/gpa.svg)](https://codeclimate.com/github/technekes/grape-apiary)
+[![Build Status](https://travis-ci.org/technekes/grape-apiary.svg?branch=master)](https://travis-ci.org/technekes/grape-apiary)
 [![Dependency Status](https://gemnasium.com/technekes/grape-apiary.png)](https://gemnasium.com/connexio-labs/grape-apiary)
 [![Gem Version](https://badge.fury.io/rb/grape-apiary.png)](http://badge.fury.io/rb/grape-apiary)
 
