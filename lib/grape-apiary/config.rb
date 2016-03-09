@@ -35,10 +35,10 @@ module GrapeApiary
       end
 
       def example_id_type=(value)
-        fail UnsupportedIDType unless supported_id_types.include?(value)
+        raise UnsupportedIDType unless supported_id_types.include?(value)
 
         if value.to_sym == :bson && !Object.const_defined?('BSON')
-          fail BSONNotDefinied
+          raise BSONNotDefinied
         end
 
         @example_id_type = value

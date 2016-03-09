@@ -15,7 +15,7 @@ module GrapeApiary
     end
 
     def write
-      fail 'Not yet supported'
+      raise 'Not yet supported'
     end
 
     def routes

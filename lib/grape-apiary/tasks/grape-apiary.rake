@@ -2,7 +2,7 @@ namespace :ga do
   desc 'Produce documentation'
   task docs: :environment do
     api = ENV['API'] || ARGV[1]
-    fail 'You must provide the name of an API to document' if api.nil?
+    raise 'You must provide the name of an API to document' if api.nil?
     begin
       api_class = Object.const_get(api)
       api_docs = GrapeApiary::Blueprint.new(api_class).generate
