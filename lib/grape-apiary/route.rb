@@ -5,8 +5,10 @@ module GrapeApiary
     delegate :route_namespace, :route_path, :route_method, to: '__getobj__'
 
     def route_params
-      @route_params ||= __getobj__.route_params.sort.map do |param|
-        Parameter.new(self, *param)
+      @route_params ||= begin
+        __getobj__.route_params.stringify_keys.sort.map do |param|
+          Parameter.new(self, *param)
+        end
       end
     end
 
