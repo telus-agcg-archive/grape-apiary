@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 0.1.1 (2016-01-25)
 #### Hotfix
-- Lock down Grape dependency to prior to 0.16 because of internal change [@jallen3d](https://github.com/johnallen3d).
+- Lock down grape dependency to prior to 0.16 because of internal change [@jallen3d](https://github.com/johnallen3d).
 
 ## 0.1.1 (2016-01-25)
 #### Fixes
