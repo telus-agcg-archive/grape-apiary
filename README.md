@@ -3,7 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/technekes/grape-apiary/badges/gpa.svg)](https://codeclimate.com/github/technekes/grape-apiary)
 [![Build Status](https://travis-ci.org/technekes/grape-apiary.svg?branch=master)](https://travis-ci.org/technekes/grape-apiary)
 [![Test Coverage](https://codeclimate.com/github/technekes/grape-apiary/badges/coverage.svg)](https://codeclimate.com/github/technekes/grape-apiary/coverage)
-[![Dependency Status](https://gemnasium.com/technekes/grape-apiary.png)](https://gemnasium.com/connexio-labs/grape-apiary)
+[![Dependency Status](https://gemnasium.com/technekes/grape-apiary.png)](https://gemnasium.com/technekes/grape-apiary)
 [![Gem Version](https://badge.fury.io/rb/grape-apiary.png)](http://badge.fury.io/rb/grape-apiary)
 
 Auto generates an [Apiary Blueprint](http://apiary.io) from the docuementation that is created by your [Grape](https://github.com/ruby-grape/grape) API.
