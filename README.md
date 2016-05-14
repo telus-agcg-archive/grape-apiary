@@ -6,7 +6,7 @@
 [![Dependency Status](https://gemnasium.com/technekes/grape-apiary.png)](https://gemnasium.com/technekes/grape-apiary)
 [![Gem Version](https://badge.fury.io/rb/grape-apiary.png)](http://badge.fury.io/rb/grape-apiary)
 
-Auto generates an [Apiary Blueprint](http://apiary.io) from the docuementation that is created by your [Grape](https://github.com/ruby-grape/grape) API.
+Auto generates an [Apiary Blueprint](http://apiary.io) from the documentation that is created by your [Grape](https://github.com/ruby-grape/grape) API.
 
 ## Installation
 
