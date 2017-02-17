@@ -15,7 +15,7 @@ describe GrapeApiary::Resource do
     it 'response generation is delegated to a generator' do
       expect(subject.sample_generator).to receive(:response)
 
-      subject.sample_response(GrapeApiary::Route.new(Grape::Route.new))
+      subject.sample_response(GrapeApiary::Route.new(SampleApi.routes.first))
     end
   end
 end

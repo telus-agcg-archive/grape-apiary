@@ -2,31 +2,31 @@ module GrapeApiary
   class Route < SimpleDelegator
     # would like to rely on SimpleDelegator but Grape::Route uses
     # method_missing for these methods :'(
-    delegate :route_namespace, :route_path, :route_method, to: '__getobj__'
+    delegate :namespace, :path, :request_method, to: '__getobj__'
 
-    def route_params
-      @route_params ||= begin
-        __getobj__.route_params.stringify_keys.sort.map do |param|
+    def params
+      @params ||= begin
+        __getobj__.params.stringify_keys.sort.map do |param|
           Parameter.new(self, *param)
         end
       end
     end
 
     def route_name
-      route_namespace.split('/').last ||
-        route_path.match('\/(\w*?)[\.\/\(]').captures.first
+      namespace.split('/').last ||
+        path.match('\/(\w*?)[\.\/\(]').captures.first
     end
 
-    def route_description
-      "#{__getobj__.route_description} [#{route_method.upcase}]"
+    def description
+      "#{__getobj__.description} [#{request_method.upcase}]"
     end
 
-    def route_path_without_format
-      route_path.gsub(/\((.*?)\)/, '')
+    def path_without_format
+      path.gsub(/\((.*?)\)/, '')
     end
 
     def route_model
-      route_namespace.split('/').last.singularize
+      namespace.split('/').last.singularize
     end
 
     def route_type
@@ -38,19 +38,19 @@ module GrapeApiary
     end
 
     def response_description
-      code = route_method == 'POST' ? 201 : 200
+      code = request_method == 'POST' ? 201 : 200
 
       "+ Response #{code} (application/json)"
     end
 
     def list?
-      %w(GET POST).include?(route_method) && !route_path.include?(':id')
+      %w(GET POST).include?(request_method) && !path.include?(':id')
     end
 
     private
 
     def request_body?
-      !%w(GET DELETE).include?(route_method)
+      !%w(GET DELETE).include?(request_method)
     end
   end
 end

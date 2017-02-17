@@ -12,7 +12,7 @@ describe GrapeApiary::Route do
   end
 
   it 'adds a path helper without format' do
-    expect(subject.route_path_without_format).to eq('/widgets')
+    expect(subject.path_without_format).to eq('/widgets')
   end
 
   it 'adds a type helper' do
