@@ -14,13 +14,13 @@ module GrapeApiary
     end
 
     def namespaced
-      @namespaced ||= routes.group_by(&:route_namespace).map do |_, routes|
+      @namespaced ||= routes.group_by(&:namespace).map do |_, routes|
         Resource.new(name, routes)
       end
     end
 
     def paths
-      @paths ||= routes.group_by(&:route_path_without_format).map do |_, routes|
+      @paths ||= routes.group_by(&:path_without_format).map do |_, routes|
         Resource.new(name, routes)
       end
     end
@@ -29,7 +29,7 @@ module GrapeApiary
       # TODO: ???
       route = routes.first
 
-      "#{title} #{route.route_type} [#{route.route_path_without_format}]"
+      "#{title} #{route.route_type} [#{route.path_without_format}]"
     end
 
     def sample_request
@@ -46,11 +46,11 @@ module GrapeApiary
       methods = %w(POST PUT)
 
       potential = routes.select do |route|
-        methods.include?(route.route_method) && route.route_params.present?
+        methods.include?(route.request_method) && route.params.present?
       end
 
       if potential.present?
-        potential.first.route_params
+        potential.first.params
       else
         []
       end

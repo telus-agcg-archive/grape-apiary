@@ -47,7 +47,7 @@ module GrapeApiary
     end
 
     def show_request_sample?(route)
-      %w(PUT POST).include?(route.route_method)
+      %w(PUT POST).include?(route.request_method)
     end
 
     private

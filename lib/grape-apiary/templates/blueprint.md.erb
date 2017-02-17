@@ -11,14 +11,14 @@ HOST: <%= host %>
     <% grouped_resource.paths.each do |resource_by_path| %>
 ## <%= resource_by_path.header %>
 Actions on the <%= resource.name %> resource
-      <% if resource_by_path.routes.first.route_params.present? %>
+      <% if resource_by_path.routes.first.params.present? %>
 + Parameters
-        <% resource_by_path.routes.first.route_params.each do |param| %>
+        <% resource_by_path.routes.first.params.each do |param| %>
     + <%= param.description %>
         <% end %>
       <% end %>
       <% resource_by_path.routes.each do |route| %>
-### <%= route.route_description %>
+### <%= route.description %>
 <% if show_request_sample?(route) %>
 <%= route.request_description %>
 <%= formatted_request_headers %>

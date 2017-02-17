@@ -2,7 +2,7 @@ module GrapeApiary
   class Parameter
     attr_reader :route, :full_name, :name, :settings
 
-    delegate :route_model, :route_namespace, to: :route
+    delegate :route_model, :namespace, to: :route
     delegate :requirement, :type, :documentation, :desc, to: :settings
     delegate :example, to: :documentation, allow_nil: true
 

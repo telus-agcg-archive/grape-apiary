@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
     docuementation that is created by your Grape API
   DESCRIPTION
 
-  spec.add_runtime_dependency 'grape', '>= 0.14', '< 0.16'
+  spec.add_runtime_dependency 'grape', '>= 0.16.0', '<= 0.19.1'
   spec.add_runtime_dependency 'activesupport'
 
   spec.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
