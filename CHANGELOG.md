@@ -4,7 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Recent updates
 
+## 0.2.0 (2017-02-21)
+
+#### Maintenance
+
 - [PR #14](https://github.com/technekes/grape-apiary/pull/14) - Update supported Ruby versions and dependencies [@jallen3d](https://github.com/johnallen3d).
+- [PR #13](https://github.com/technekes/grape-apiary/pull/13) - Update grape gem requirement to at least 0.16 [@rubensmabueno](https://github.com/rubensmabueno).
 
 ## 0.1.2 (2016-01-25)
 
