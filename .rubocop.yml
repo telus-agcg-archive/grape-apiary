@@ -37,7 +37,7 @@ Style/ElseAlignment:
   Enabled: false
 
 Lint/EndAlignment:
-  AlignWith: variable
+  EnforcedStyleAlignWith: variable
 
 ClassAndModuleChildren:
   # ok to use compact style when modules are predefined.
@@ -46,3 +46,9 @@ ClassAndModuleChildren:
   #
   # class Foo::Bar; end
   Enabled: false
+
+Metrics/BlockLength:
+  # Certain DSL use blocks and can be lengthy
+  Exclude:
+    - 'grape-apiary.gemspec'
+    - 'spec/**/*'
