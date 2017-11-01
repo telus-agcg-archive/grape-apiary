@@ -3,8 +3,6 @@ module GrapeApiary
     attr_reader :route, :full_name, :name, :settings
 
     delegate :route_model, :namespace, to: :route
-    delegate :requirement, :type, :documentation, :desc, to: :settings
-    delegate :example, to: :documentation, allow_nil: true
 
     def initialize(route, name, options)
       @full_name = name
@@ -12,6 +10,26 @@ module GrapeApiary
       @name      = name.scan(/\[(.*)\]/).flatten.first if name.include?('[')
       @route     = route
       @settings  = parse_options(options)
+    end
+
+    def requirement
+      settings[:requirement]
+    end
+
+    def type
+      settings[:type]
+    end
+
+    def desc
+      settings[:desc]
+    end
+
+    def documentation
+      settings[:documentation]
+    end
+
+    def example
+      documentation ? documentation[:example] : nil
     end
 
     def description
@@ -25,7 +43,7 @@ module GrapeApiary
 
       options[:requirement] = options[:required] ? 'required' : 'optional'
 
-      Hashie::Mash.new(options)
+      options
     end
 
     def default_options
