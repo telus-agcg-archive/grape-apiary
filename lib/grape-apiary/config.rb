@@ -1,15 +1,15 @@
 module GrapeApiary
   class Config
-    SETTINGS = [
-      :host,
-      :name,
-      :description,
-      :request_headers,
-      :response_headers,
-      :example_id_type,
-      :resource_exclusion,
-      :include_root
-    ].freeze
+    SETTINGS = %i(
+      host
+      name
+      description
+      request_headers
+      response_headers
+      example_id_type
+      resource_exclusion
+      include_root
+    ).freeze
 
     class << self
       attr_accessor(*SETTINGS)
@@ -31,7 +31,7 @@ module GrapeApiary
       end
 
       def supported_id_types
-        [:integer, :uuid, :bson]
+        %i(integer uuid bson)
       end
 
       def example_id_type=(value)
