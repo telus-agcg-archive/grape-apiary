@@ -1,4 +1,5 @@
 AllCops:
+  TargetRubyVersion: 2.4
   Excludes:
     - Rakefile
     - vendor/**/*
@@ -22,7 +23,7 @@ AlignParameters:
   # )
   EnforcedStyle: with_fixed_indentation
 
-Style/AlignParameters:
+Layout/AlignParameters:
   # allow for end of if to be aligned with a variable.
   # for example:
   #
@@ -33,7 +34,7 @@ Style/AlignParameters:
   # end
   EnforcedStyle: with_fixed_indentation
 
-Style/ElseAlignment:
+Layout/ElseAlignment:
   Enabled: false
 
 Lint/EndAlignment:
@@ -41,7 +42,7 @@ Lint/EndAlignment:
 
 ClassAndModuleChildren:
   # ok to use compact style when modules are predefined.
-  # for example the following is fine so long as we're sure that 
+  # for example the following is fine so long as we're sure that
   # module MDB has already been required/defined.
   #
   # class Foo::Bar; end
@@ -52,3 +53,12 @@ Metrics/BlockLength:
   Exclude:
     - 'grape-apiary.gemspec'
     - 'spec/**/*'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+    "%i": ()
+    "%w": ()
