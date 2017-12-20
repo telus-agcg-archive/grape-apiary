@@ -4,6 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Recent updates
 
+## 1.0.0 (2017-12-20)
+
+#### Maintenance
+
+- [PR #16](https://github.com/technekes/grape-apiary/pull/16) - Upgrade to latest version of RuboCop [@jallen3d](https://github.com/johnallen3d).
+- [PR #15](https://github.com/technekes/grape-apiary/pull/15) - Update for grape 1.0 [@travisp](https://github.com/travisp).
+
 ## 0.2.0 (2017-02-21)
 
 #### Maintenance
