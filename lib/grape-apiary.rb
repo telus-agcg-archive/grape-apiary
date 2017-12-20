@@ -1,4 +1,4 @@
-require 'active_support/all' # rubocop:disable Style/FileName
+require 'active_support/all' # rubocop:disable Naming/FileName
 require 'grape'
 
 module GrapeApiary
